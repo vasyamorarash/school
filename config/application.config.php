@@ -1,6 +1,7 @@
 <?php
 return array(
     // This should be an array of module namespaces used in the application.
+    //alcatraz
     'modules' => array(
         'ZendDeveloperTools',
         'DoctrineModule',
