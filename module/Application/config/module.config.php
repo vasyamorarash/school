@@ -10,41 +10,53 @@
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+            'site' => array(
+                'type' => 'hostname',
                 'options' => array(
-                    'route'    => '/',
+                    //set route hostname locally
+                    'route' => 'school.dev',
+                    'constraints' => array(
+                        'subdomain' => ''
+                    ),
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    // Site section
+                    'home' => array(
+                        'type' => 'literal',
+                        'options' => array(
+                            'route'    => '/',
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Index',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
+                ),
             ),
-            // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
-            'application' => array(
-                'type'    => 'Literal',
+            'api-site' => array(
+                'type' => 'hostname',
                 'options' => array(
-                    'route'    => '/application',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Index',
-                        'action'        => 'index',
+                    //set route hostname locally
+                    'route' => '[:subdomain].school.dev',
+                    'constraints' => array(
+                        'subdomain' => '[a-z][a-z0-9]*'
                     ),
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'Segment',
+                    // Site section
+                    'api-home' => array(
+                        'type' => 'literal',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
+                            'route'    => '/',
                             'defaults' => array(
+                                'controller' => 'School\Controller\Index',
+                                'action'     => 'index',
                             ),
                         ),
                     ),
@@ -73,7 +85,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'School\Controller\Index' => 'School\Controller\IndexController'
         ),
     ),
     'view_manager' => array(
