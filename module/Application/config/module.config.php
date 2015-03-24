@@ -8,6 +8,19 @@
  */
 
 return array(
+    'doctrine' => array(
+        'driver' => array(
+            'application_entities' => array(
+                'class' =>'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/Application/Entity')
+            ),
+
+            'orm_default' => array(
+                'drivers' => array(
+                    'Application\Entity' => 'application_entities'
+                )
+            ))),
     'router' => array(
         'routes' => array(
             'site' => array(
@@ -26,7 +39,7 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => array(
                     // Site section
-                    'home' => array(
+                    'site' => array(
                         'type' => 'literal',
                         'options' => array(
                             'route'    => '/',

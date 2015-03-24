@@ -14,10 +14,18 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-    public function indexAction()
-    {
-        exit('index');
-        return new ViewModel();
+    public function indexAction() {
+    /*   $objectManager = $this
+            ->getServiceLocator()
+            ->get('Doctrine\ORM\EntityManager');
+
+        $type = new \Application\Entity\Type();
+        $type->setName('Marco Pivetta');
+
+        $objectManager->persist($type);
+        $objectManager->flush();
+
+        die(var_dump($type->getId())); // yes, I'm lazy*/
     }
 
     public function editAction()
