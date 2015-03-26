@@ -36,12 +36,18 @@ class Users {
     /** @ORM\Column(type="string") */
     protected $middle_name;
 
-    /** @ORM\Column(type="integer") */
+    /** @ORM\Column(type="integer")
+     *  @ORM\ManyToOne(targetEntity="Users")
+     *  @ORM\JoinColumn(name="user_type_id", referencedColumnName="user_id")
+     */
     protected $user_type_id;
 
 
-    /** @ORM\Column(type="integer") */
-    protected $institution_type_id;
+    /** @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Institutions", inversedBy="id")
+     * @ORM\JoinColumn(name="institution_id", referencedColumnName="user_id")
+     */
+    protected $institution_id;
 
     /** @ORM\Column(type="date") */
     protected $birthday;

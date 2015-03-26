@@ -15,13 +15,19 @@ class Institutions {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="Users", mappedBy="institution_id")
+
      */
     protected $id;
+
 
     /** @ORM\Column(type="string") */
     protected $name;
 
-    /** @ORM\Column(type="integer") */
+    /** @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="InstitutionType", inversedBy="id")
+     * @ORM\JoinColumn(name="institution_type_id", referencedColumnName="institution_id")
+     */
     protected $institution_type_id;
 
     /** @ORM\Column(type="string") */
@@ -35,6 +41,9 @@ class Institutions {
 
     /** @ORM\Column(type="text") */
     protected $description;
+
+
+
 
 
 } 
