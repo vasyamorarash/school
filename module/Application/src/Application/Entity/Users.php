@@ -259,7 +259,7 @@ class Users {
         $select = new Select();
         $resultSet  = $select->from(array('u' => 'users'), 'name')->where('user_type = 1');
         //$resultSet = $this->tableGateway->selectWith($select);
-        DIE(print_r($resultSet));
+       // DIE(print_r($resultSet));
         return $resultSet;
 
     }
