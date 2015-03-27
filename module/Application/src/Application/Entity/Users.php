@@ -257,7 +257,7 @@ class Users {
         $select = new Select();
         $resultSet  = $select->from('school.users');
         //$resultSet = $this->tableGateway->selectWith($select);
-        DIE(print_r($resultSet));
+       // DIE(print_r($resultSet));
         return $resultSet;
 
     }
