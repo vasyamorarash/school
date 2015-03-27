@@ -9,6 +9,8 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Db\Sql\Select;
+use Zend\Db\TableGateway\TableGateway;
 /** @ORM\Entity */
 class Users {
     /**
@@ -36,12 +38,18 @@ class Users {
     /** @ORM\Column(type="string") */
     protected $middle_name;
 
-    /** @ORM\Column(type="integer") */
+    /** @ORM\Column(type="integer")
+     *  @ORM\ManyToOne(targetEntity="Users")
+     *  @ORM\JoinColumn(name="user_type_id", referencedColumnName="user_id")
+     */
     protected $user_type_id;
 
 
-    /** @ORM\Column(type="integer") */
-    protected $institution_type_id;
+    /** @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Institutions", inversedBy="id")
+     * @ORM\JoinColumn(name="institution_id", referencedColumnName="user_id")
+     */
+    protected $institution_id;
 
     /** @ORM\Column(type="date") */
     protected $birthday;
@@ -246,5 +254,13 @@ class Users {
     }
 
 
+    public function selectUsers(){
 
+        $select = new Select();
+        $resultSet  = $select->from(array('u' => 'users'), 'name')->where('user_type = 1');
+        //$resultSet = $this->tableGateway->selectWith($select);
+        DIE(print_r($resultSet));
+        return $resultSet;
+
+    }
 } 
