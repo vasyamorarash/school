@@ -9,6 +9,8 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Db\Sql\Select;
+use Zend\Db\TableGateway\TableGateway;
 /** @ORM\Entity */
 class Users {
     /**
@@ -60,5 +62,13 @@ class Users {
     protected $description;
 
 
+    public function selectUsers(){
 
+        $select = new Select();
+        $resultSet  = $select->from(array('u' => 'users'), 'name')->where('user_type = 1');
+        //$resultSet = $this->tableGateway->selectWith($select);
+        DIE(print_r($resultSet));
+        return $resultSet;
+
+    }
 } 
