@@ -18,6 +18,7 @@ class UserType {
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      * @ORM\OneToMany(targetEntity="User", mappedBy="user_type_id")
+     * @ORM\JoinColumn(name="user_type_id", referencedColumnName="id")
 
      */
     protected $id;
