@@ -11,21 +11,23 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\View\ViewEvent;
 
 class IndexController extends AbstractActionController
 {
     public function indexAction() {
-    /*   $objectManager = $this
+  /*     $objectManager = $this
             ->getServiceLocator()
             ->get('Doctrine\ORM\EntityManager');
 
-        $type = new \Application\Entity\Type();
-        $type->setName('Marco Pivetta');
+        $institution_type = new \Application\Entity\InstitutionType();
+        $institution_type->setName('school');
 
-        $objectManager->persist($type);
-        $objectManager->flush();
+        $objectManager->persist($institution_type);
+        $objectManager->flush();*/
 
-        die(var_dump($type->getId())); // yes, I'm lazy*/
+     //   die(var_dump($institution_type->getId()).'name: '.$institution_type->getName()); // yes, I'm lazy*/
+
     }
 
     public function editAction()
