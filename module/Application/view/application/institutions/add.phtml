@@ -12,7 +12,7 @@ $this->headTitle($title);
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 
 <?php
-$form->setAttribute('action', $this->url('Institutions', array('action' => 'add')));
+$form->setAttribute('action', $this->url('institutions', array('action' => 'add')));
 
 $form->prepare();
 ?>
