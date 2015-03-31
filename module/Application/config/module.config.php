@@ -9,7 +9,7 @@
 
 return array(
     'doctrine' => array(
-        'driver' => array(
+            'driver' => array(
             'application_entities' => array(
                 'class' =>'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
@@ -20,7 +20,9 @@ return array(
                 'drivers' => array(
                     'Application\Entity' => 'application_entities'
                 )
-            ))),
+            )
+        )
+    ),
     'router' => array(
         'routes' => array(
             'site' => array(
@@ -116,6 +118,11 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+    ),
+    'view_helpers' => array(
+        'invokables' => array(
+            'menuHelper' => 'Application\View\Helper\MenuHelper',
         ),
     ),
     // Placeholder for console routes

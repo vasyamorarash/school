@@ -41,7 +41,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="img/chnu.jpg">
+                <img src="img/chnu2.jpg">
                 <div class="container">
 
                     <div class="carousel-caption">
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/example/bg_suburb.jpg">
+                <img src="img/chnu.jpg">
                 <div class="container">
                     <div class="carousel-caption">
                         <h2>Interior Design</h2>
@@ -93,25 +93,7 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav nav-justified">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Academic</a></li>
-                        <li><a href="#">Commercial</a></li>
-                        <li><a href="#">Financial</a></li>
-                        <li><a href="#">Interior Design</a></li>
-                        <li><a href="#">Medical</a></li>
-                        <li><a href="#">Religious</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Location</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
+        <?php echo $this->menuHelper(); ?><!--/.nav-collapse -->
     </div><!--/.container -->
 </div><!--/.navbar -->
 
@@ -144,10 +126,10 @@
 <div class="divider" id="section2"></div>
 
 <div class="row">
-    <div class="container">
-    <?php echo $this->content; ?>
-    </div>
     <div class="col-sm-10 col-sm-offset-1">
+        <div class="container">
+            <?php echo $this->content; ?>
+        </div>
         <h1>Profile</h1>
 
         <hr>
