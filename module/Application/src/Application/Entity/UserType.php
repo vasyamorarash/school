@@ -8,6 +8,8 @@
 
 namespace Application\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 use Doctrine\ORM\Mapping as ORM;
 /** @ORM\Entity */
@@ -57,5 +59,23 @@ class UserType {
         $this->name = $name;
     }
 
+    /**
+     * Helper function.
+     */
+    public function exchangeArray($data)
+    {
+        foreach ($data as $key => $val) {
+            if (property_exists($this, $key)) {
+                $this->$key = (!empty($val)) ? $val : null;
+            }
+        }
+    }
+    /**
+     * Helper function
+     */
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
+    }
 
 }
