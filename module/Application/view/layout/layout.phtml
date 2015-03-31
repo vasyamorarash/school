@@ -10,19 +10,16 @@
     ?>
     <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
         ->prependStylesheet($this->basePath('css/the_firm/styles.css'))
-        ->prependStylesheet($this->basePath('css/bootstrap-cyborg.css')) ?>
+        ->prependStylesheet($this->basePath('css/bootstrap-superhero.css')) ?>
 
     <?php echo $this->headScript()
        // ->prependFile($this->basePath('//html5shim.googlecode.com/svn/trunk/html5.js'))
         ->prependFile($this->basePath('//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js'))
         ->prependFile($this->basePath('js/the_firm/bootstrap.min.js'), 'text/javascript')
-      //  ->prependFile($this->basePath('http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed'))
-        ->prependFile($this->basePath() . 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false')
+        ->prependFile($this->basePath('http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed'))
         ->prependFile($this->basePath('js/the_firm/scripts.js'),   'text/javascript' )
         ->prependFile($this->basePath('js/jquery.min.js'),   'text/javascript' )
         ->prependFile($this->basePath('js/html5shiv.js'),   'text/javascript' )
-
-        ->prependFile($this->basePath('js/map/map_location.js'),   'text/javascript' )
     ; ?>
 
 </head>
@@ -54,7 +51,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="img/chnu1.jpg">
+                <img src="/assets/example/bg_suburb.jpg">
                 <div class="container">
                     <div class="carousel-caption">
                         <h2>Interior Design</h2>
@@ -72,7 +69,7 @@
                 </div>
             </div>
         </div><!-- /.carousel-inner -->
-        <div class="logo">The Firm</div>
+        <div class="logo">School</div>
         <!-- Controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -98,8 +95,8 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav nav-justified">
-                <li><a href="#section1">Home</a></li>
-                <li><a href="#section2">Profile</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -111,8 +108,8 @@
                         <li><a href="#">Religious</a></li>
                     </ul>
                 </li>
-                <li><a href="#section4">Location</a></li>
-                <li><a href="#section5">Contact</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container -->

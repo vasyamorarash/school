@@ -16,17 +16,17 @@ use Zend\View\ViewEvent;
 class IndexController extends AbstractActionController
 {
     public function indexAction() {
-  /*     $objectManager = $this
-            ->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager');
-
-        $institution_type = new \Application\Entity\InstitutionType();
-        $institution_type->setName('school');
-
-        $objectManager->persist($institution_type);
-        $objectManager->flush();*/
-
-     //   die(var_dump($institution_type->getId()).'name: '.$institution_type->getName()); // yes, I'm lazy*/
+//       $objectManager = $this
+//            ->getServiceLocator()
+//            ->get('Doctrine\ORM\EntityManager');
+////
+//        $institution_type = new \Application\Entity\InstitutionType();
+////        $institution_type->setName('school');
+////
+//        $objectManager->persist($institution_type);
+////        $objectManager->flush();
+//
+//        die(var_dump($institution_type->getId()).'name: '.$institution_type->getName()); // yes, I'm lazy
 
     }
 
