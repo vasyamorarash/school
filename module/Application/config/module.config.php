@@ -78,10 +78,10 @@ return array(
                 ),
             ),
 
-            'Institutions' => array(
+            'institutions' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/Institutions[/:action][/:id]',
+                    'route'    => '/institutions[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
