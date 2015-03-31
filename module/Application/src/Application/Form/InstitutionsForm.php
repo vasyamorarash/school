@@ -135,9 +135,5 @@ class InstitutionsForm extends Form
                 'class' => 'btn btn-primary',
             ),
         ));
-        $this->add(array(
-            'name' => 'csrf',
-            'type' => 'Zend\Form\Element\Csrf',
-        ));
     }
 }
