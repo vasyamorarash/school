@@ -20,14 +20,14 @@ $form->prepare();
     <?php echo $this->form()->openTag($form); ?>
     <fieldset>
         <?php echo $this->formElement($form->get('id'));
-      //  echo $this->formElementErrors($form->get('id'));?>
+        echo $this->formElementErrors($form->get('id'));?>
         <br>
         <div class="form-group">
             <?php echo $this->formLabel($form->get('name'));
           ?>
             <div class="col-lg-8">
                 <?php   echo $this->formElement($form->get('name'));
-            //    echo $this->formElementErrors($form->get('name'));?>
+                echo $this->formElementErrors($form->get('name'));?>
             </div>
         </div>
 
@@ -36,7 +36,7 @@ $form->prepare();
 ?>
             <div class="col-lg-8">
                 <?php echo $this->formElement($form->get('institution_type_id'));
-         //       echo $this->formElementErrors($form->get('institution_type_id'));?>
+                echo $this->formElementErrors($form->get('institution_type_id'));?>
             </div>
         </div>
 
@@ -45,7 +45,7 @@ $form->prepare();
             echo $this->formLabel($form->get('address'));?>
             <div class="col-lg-8">
                 <?php  echo $this->formElement($form->get('address'));
-              //  echo $this->formElementErrors($form->get('address')); ?>
+                echo $this->formElementErrors($form->get('address')); ?>
             </div>
         </div>
         <div class="form-group">
@@ -53,21 +53,21 @@ $form->prepare();
             ?>
             <div class="col-lg-8">
                 <?php echo $this->formElement($form->get('subdomain'));
-             //   echo $this->formElementErrors($form->get('subdomain')); ?>
+                echo $this->formElementErrors($form->get('subdomain')); ?>
             </div>
         </div>  <div class="form-group">
             <?php echo $this->formLabel($form->get('phone'));
             ?>
             <div class="col-lg-8">
                 <?php echo $this->formElement($form->get('phone'));
-              //  echo $this->formElementErrors($form->get('phone')); ?>
+                echo $this->formElementErrors($form->get('phone')); ?>
             </div>
         </div>
         <div class="form-group">
             <?php echo $this->formLabel($form->get('description'));?>
             <div class="col-lg-8">
                 <?php echo $this->formElement($form->get('description'));
-              //  echo $this->formElementErrors($form->get('description'));?>
+                echo $this->formElementErrors($form->get('description'));?>
             </div>
         </div>
 

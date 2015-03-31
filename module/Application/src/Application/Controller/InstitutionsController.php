@@ -33,10 +33,10 @@ class InstitutionsController extends AbstractActionController{
                 $form->setInputFilter($formValidator->getInputFilter());
                 $form->setData($request->getPost());
             }
-            //die(print_r($request->getPost()));
-            if($form->isValid()){
+           // die(print_r($form->isValid());
+            if($form->isValid() ){
                 {
-           //die('alacatraz');
+           die('alacatraz');
                     $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
                     $institutions = new Institutions();
                     $institutions->exchangeArray($form->getData());
@@ -46,7 +46,7 @@ class InstitutionsController extends AbstractActionController{
                     $message = 'Institutions succesfully saved!';
                     $this->flashMessenger()->addMessage($message);
 
-                  //  return $this->redirect()->toRoute('blog');
+                    return $this->redirect()->toRoute('blog');
                 }
             }else{
                 $message = 'Error while saving blogpost';
