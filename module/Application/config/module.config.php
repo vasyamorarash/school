@@ -77,6 +77,21 @@ return array(
                     ),
                 ),
             ),
+
+            'Institutions' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/Institutions[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Institutions',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
         ),
     ),
     'service_manager' => array(
@@ -101,6 +116,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Institutions' => 'Application\Controller\InstitutionsController',
             'School\Controller\Index' => 'School\Controller\IndexController'
         ),
     ),

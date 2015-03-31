@@ -16,7 +16,7 @@ class Institutions {
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      * @ORM\OneToMany(targetEntity="Users", mappedBy="institution_id")
-
+     * @ORM\JoinColumn(name="institution_id", referencedColumnName="id")
      */
     protected $id;
 
@@ -154,8 +154,25 @@ class Institutions {
         $this->subdomain = $subdomain;
     }
 
+    public function insert(){
 
+    }
 
-
+    public function exchangeArray($data)
+    {
+        //die('dsasda');
+        foreach ($data as $key => $val) {
+            if (property_exists($this, $key)) {
+                $this->$key = (!empty($val)) ? $val : null;
+            }
+        }
+    }
+    /**
+     * Helper function
+     */
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
+    }
 
 } 

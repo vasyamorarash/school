@@ -17,6 +17,7 @@ class InstitutionType {
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      * @ORM\OneToMany(targetEntity="Institutions", mappedBy="institution_type_id")
+     * @ORM\JoinColumn(name="institution_type_id", referencedColumnName="id")
      */
     protected $id;
 
