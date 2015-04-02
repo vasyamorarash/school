@@ -59,9 +59,8 @@ class UserType {
     {
         $this->name = $name;
     }
-
     /**
-     * Helper function.
+     * Helper function
      */
     public function exchangeArray($data)
     {

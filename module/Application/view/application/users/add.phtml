@@ -1,0 +1,159 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ivan
+ * Date: 31.03.2015
+ * Time: 2:11
+ */
+$title = 'Add Institutions';
+$this->headTitle($title);
+//print $this->showMessages();
+?>
+<h1><?php echo $this->escapeHtml($title);?></h1>
+
+<?php
+$form->setAttribute('action', $this->url('site/users', array('action' => 'add')));
+
+$form->prepare();
+
+?>
+<div class="row">
+<div class="col-lg-8">
+    <?php echo $this->form()->openTag($form); ?>
+    <fieldset>
+        <?php echo $this->formElement($form->get('id'));
+        echo $this->formElementErrors($form->get('id'));?>
+        <br>
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('login'));
+          ?>
+            <div class="col-lg-8">
+                <?php   echo $this->formElement($form->get('login'));
+                echo $this->formElementErrors($form->get('login'));?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('email'));
+          ?>
+            <div class="col-lg-8">
+                <?php   echo $this->formElement($form->get('email'));
+                echo $this->formElementErrors($form->get('email'));?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('password'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('password'));
+                echo $this->formElementErrors($form->get('password'));?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php
+            echo $this->formLabel($form->get('password_verify'));?>
+            <div class="col-lg-8">
+                <?php  echo $this->formElement($form->get('password_verify'));
+                echo $this->formElementErrors($form->get('password_verify')); ?>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('name'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('name'));
+                echo $this->formElementErrors($form->get('name')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('last_name'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('last_name'));
+                echo $this->formElementErrors($form->get('last_name')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('middle_name'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('middle_name'));
+                echo $this->formElementErrors($form->get('middle_name')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('user_type_id'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('user_type_id'));
+                echo $this->formElementErrors($form->get('user_type_id')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('birthday'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('birthday'));
+                echo $this->formElementErrors($form->get('birthday')); ?>
+            </div>
+        </div>
+
+          <div class="form-group">
+            <?php echo $this->formLabel($form->get('institution_id'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('institution_id'));
+                echo $this->formElementErrors($form->get('institution_id')); ?>
+            </div>
+
+        </div>
+
+
+          <div class="form-group">
+            <?php echo $this->formLabel($form->get('sex_id'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('sex_id'));
+                echo $this->formElementErrors($form->get('sex_id')); ?>
+            </div>
+        </div>
+
+
+        <div>  <div class="form-group">
+            <?php echo $this->formLabel($form->get('phone'));
+            ?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('phone'));
+                echo $this->formElementErrors($form->get('phone')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('description'));?>
+            <div class="col-lg-8">
+                <?php echo $this->formElement($form->get('description'));
+                echo $this->formElementErrors($form->get('description'));?>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-lg-8 ">
+                <?php echo $this->formSubmit($form->get('submit'));?>
+            </div>
+        </div>
+    </fieldset>
+    <?php echo $this->form()->closeTag();?>
+
+</div>
+
+</div>

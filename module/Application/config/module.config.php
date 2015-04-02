@@ -41,12 +41,54 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => array(
                     // Site section
-                    'site' => array(
+                    'home' => array(
                         'type' => 'literal',
                         'options' => array(
                             'route'    => '/',
                             'defaults' => array(
                                 'controller' => 'Application\Controller\Index',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
+                    'institutions' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '/institutions[/:action][/:id]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Institutions',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
+                    'users' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '/users[/:action][/:id]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Users',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
+                    'institution-type' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '/institution-type[/:action][/:id]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\InstitutionType',
                                 'action'     => 'index',
                             ),
                         ),
@@ -78,20 +120,7 @@ return array(
                 ),
             ),
 
-            'institutions' => array(
-                'type'    => 'segment',
-                'options' => array(
-                    'route'    => '/institutions[/:action][/:id]',
-                    'constraints' => array(
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
-                    ),
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Institutions',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
+
         ),
     ),
     'service_manager' => array(
@@ -116,7 +145,9 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\InstitutionType' => 'Application\Controller\InstitutionTypeController',
             'Application\Controller\Institutions' => 'Application\Controller\InstitutionsController',
+            'Application\Controller\Users' => 'Application\Controller\UsersController',
             'School\Controller\Index' => 'School\Controller\IndexController'
         ),
     ),
