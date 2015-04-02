@@ -20,6 +20,7 @@ class InstitutionsForm extends Form
         parent::__construct('');
 
         $this->setAttribute('method', 'post');
+        $this->setAttribute('class', 'form-horizontal');
 
         $this->add(array(
             'name' => 'id',
