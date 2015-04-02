@@ -53,7 +53,10 @@ class Users {
     protected $birthday;
 
     /** @ORM\Column(type="integer") */
-    protected $sex;
+    protected $sex_id;
+
+    /** @ORM\Column(type="integer") */
+    protected $phone;
 
 
     /** @ORM\Column(type="integer") */

@@ -42,8 +42,8 @@ class InstitutionsController extends AbstractActionController{
                 $objectManager->persist($institutions);
                 $objectManager->flush();
 
-                $message = 'Institutions succesfully saved!';
-                $this->flashMessenger()->addMessage($message);
+                    $message = 'Institutions succesfully saved!';
+                    $this->flashMessenger()->addMessage($message);
 
                 return $this->redirect()->toRoute('site/home');
             }else{
@@ -54,6 +54,10 @@ class InstitutionsController extends AbstractActionController{
 
         }
         return ['form' => $form];
+    }
+
+    public function editAction(){
+
     }
 
 }
