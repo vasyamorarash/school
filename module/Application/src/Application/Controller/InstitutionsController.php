@@ -18,11 +18,30 @@ use Zend\View\Model\ViewModel;
 class InstitutionsController extends AbstractActionController{
 
     public function indexAction(){
-        return  new ViewModel();
+        $objectManager  = $this->getServiceLocator()->get(('Doctrine\ORM\EntityManager'));
+
+       // if($this->isAllowed('controller\/Application\\Controller\\Institutions:edit')){
+            $posts = $objectManager
+                ->getRepository('\Application\Entity\Institutions')
+                ->findBy(array(), array('name' => 'DESC'));
+        //}else{
+           /* $posts = $objectManager
+                ->getRepository('\Application\Entity\Institutions')
+                ->findBy(array('name' => 1), array('name' => 'DESC'));*/
+       // }
+        $posts_array = array();
+
+        foreach($posts as $post){
+            $posts_array[] = $post->getArrayCopy();
+        }
+
+        $view = new ViewModel(array(
+            'posts' => $posts_array,
+        ));
+        return  $view;
     }
     public function addAction()
     {
-
         $form = new InstitutionsForm();
         $request = $this->getRequest();
 
@@ -53,9 +72,12 @@ class InstitutionsController extends AbstractActionController{
                 $this->flashMessenger()->addErrorMessage($message);
             }
 
-
         }
         return ['form' => $form];
+    }
+
+    public function editAction(){
+
     }
 
 }
