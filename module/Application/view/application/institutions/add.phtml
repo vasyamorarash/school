@@ -12,10 +12,11 @@ $this->headTitle($title);
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 
 <?php
-$form->setAttribute('action', $this->url('Institutions', array('action' => 'add')));
+$form->setAttribute('action', $this->url('site/institutions', array('action' => 'add')));
 
 $form->prepare();
 ?>
+<div class="row">
 <div class="col-lg-8">
     <?php echo $this->form()->openTag($form); ?>
     <fieldset>
@@ -82,4 +83,5 @@ $form->prepare();
     <?php echo $this->form()->closeTag();?>
 
 </div>
+    </div>
 

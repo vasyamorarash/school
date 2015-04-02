@@ -41,12 +41,26 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => array(
                     // Site section
-                    'site' => array(
+                    'home' => array(
                         'type' => 'literal',
                         'options' => array(
                             'route'    => '/',
                             'defaults' => array(
                                 'controller' => 'Application\Controller\Index',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
+                    'institutions' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '/institutions[/:action][/:id]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Institutions',
                                 'action'     => 'index',
                             ),
                         ),
@@ -74,21 +88,6 @@ return array(
                                 'action'     => 'index',
                             ),
                         ),
-                    ),
-                ),
-            ),
-
-            'institutions' => array(
-                'type'    => 'segment',
-                'options' => array(
-                    'route'    => '/institutions[/:action][/:id]',
-                    'constraints' => array(
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
-                    ),
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Institutions',
-                        'action'     => 'index',
                     ),
                 ),
             ),

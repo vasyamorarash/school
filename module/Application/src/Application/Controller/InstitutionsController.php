@@ -34,20 +34,18 @@ class InstitutionsController extends AbstractActionController{
                 $form->setData($request->getPost());
             }
            // die(print_r($form->isValid());
-            if($form->isValid() ){
-                {
-           die('alacatraz');
-                    $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-                    $institutions = new Institutions();
-                    $institutions->exchangeArray($form->getData());
-                    $objectManager->persist($institutions);
-                    $objectManager->flush();
+            if($form->isValid() )
+            {
+                $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+                $institutions = new Institutions();
+                $institutions->exchangeArray($form->getData());
+                $objectManager->persist($institutions);
+                $objectManager->flush();
 
-                    $message = 'Institutions succesfully saved!';
-                    $this->flashMessenger()->addMessage($message);
+                $message = 'Institutions succesfully saved!';
+                $this->flashMessenger()->addMessage($message);
 
-                    return $this->redirect()->toRoute('blog');
-                }
+                return $this->redirect()->toRoute('site/home');
             }else{
                 $message = 'Error while saving blogpost';
                 $this->flashMessenger()->addErrorMessage($message);
