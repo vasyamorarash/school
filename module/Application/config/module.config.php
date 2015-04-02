@@ -159,6 +159,8 @@ return array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Institutions' => 'Application\Controller\InstitutionsController',
+            'Application\Controller\InstitutionType' => 'Application\Controller\InstitutionTypeController',
+            'Application\Controller\Users' => 'Application\Controller\UsersController',
             'School\Controller\Index' => 'School\Controller\IndexController'
         ),
     ),
