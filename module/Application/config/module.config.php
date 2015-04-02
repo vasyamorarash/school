@@ -41,7 +41,7 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => array(
                     // Site section
-                    'site' => array(
+                    'home' => array(
                         'type' => 'literal',
                         'options' => array(
                             'route'    => '/',
