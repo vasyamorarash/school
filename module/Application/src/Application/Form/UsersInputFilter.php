@@ -120,64 +120,64 @@ class UsersInputFilter implements InputFilterAwareInterface{
                 ),
             )));
 
-            $inputFilter->add($factory->createInput(array(
-                'name' => 'institution_id',
-                'filters' => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array (
-                        'name' => 'InArray',
-                        'options' => array(
-                            'haystack' => array(0,1)
-//                        'messages' => array(,
-//            'notInArray' => 'undefined'
-//        ),
-                        ),
-                    ),
-
-                ),
-            )));$inputFilter->add($factory->createInput(array(
-                'name' => 'user_type_id',
-                'filters' => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array (
-                        'name' => 'InArray',
-                        'options' => array(
-                            'haystack' => array(0,1)
-//                        'messages' => array(,
-//            'notInArray' => 'undefined'
-//        ),
-                        ),
-                    ),
-
-                ),
-            )));
-
-
-            $inputFilter->add($factory->createInput(array(
-                'name' => 'sex_id',
-                'filters' => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array (
-                        'name' => 'InArray',
-                        'options' => array(
-                            'haystack' => array(0,1)
-//                        'messages' => array(,
-//            'notInArray' => 'undefined'
-//        ),
-                        ),
-                    ),
-
-                ),
-            )));
+//            $inputFilter->add($factory->createInput(array(
+//                'name' => 'institution_id',
+//                'filters' => array(
+//                    array('name' => 'StripTags'),
+//                    array('name' => 'StringTrim'),
+//                ),
+//                'validators' => array(
+//                    array (
+//                        'name' => 'InArray',
+//                        'options' => array(
+//                            'haystack' => array(0,1,2)
+////                        'messages' => array(,
+////            'notInArray' => 'undefined'
+////        ),
+//                        ),
+//                    ),
+//
+//                ),
+//            )));$inputFilter->add($factory->createInput(array(
+//                'name' => 'user_type_id',
+//                'filters' => array(
+//                    array('name' => 'StripTags'),
+//                    array('name' => 'StringTrim'),
+//                ),
+//                'validators' => array(
+//                    array (
+//                        'name' => 'InArray',
+//                        'options' => array(
+//                            'haystack' => array(0,1,2)
+////                        'messages' => array(,
+////            'notInArray' => 'undefined'
+////        ),
+//                        ),
+//                    ),
+//
+//                ),
+//            )));
+//
+//
+//            $inputFilter->add($factory->createInput(array(
+//                'name' => 'sex_id',
+//                'filters' => array(
+//                    array('name' => 'StripTags'),
+//                    array('name' => 'StringTrim'),
+//                ),
+//                'validators' => array(
+//                    array (
+//                        'name' => 'InArray',
+//                        'options' => array(
+//                            'haystack' => array(0,1,2)
+////                        'messages' => array(,
+////            'notInArray' => 'undefined'
+////        ),
+//                        ),
+//                    ),
+//
+//                ),
+//            )));
 
             $inputFilter->add($factory->createInput(array(
                  'name' => 'phone',
@@ -189,7 +189,25 @@ class UsersInputFilter implements InputFilterAwareInterface{
                 'validators' => array(
                   ),
             )));
-
+          /*  $inputFilter->add($factory->createInput(array(
+                'name'     => 'birthday',
+                'required' => false,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                ),
+                'validators' => array(
+                    array(
+                        'name' => 'DateStep',
+                        'options' => array(
+                            //'step'     => new DateInterval("P2D"),
+                            //'baseValue' => new DateTime(),
+                            'messages' => array(
+                                \Zend\Validator\DateStep::NOT_STEP => 'Must be a day in the future',
+                            ),
+                        ),
+                    ),
+                ),
+            )));*/
             $inputFilter->add($factory->createInput(array(
                 'name' => 'description',
                 'required' => true,
