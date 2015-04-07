@@ -208,14 +208,7 @@ class UsersInputFilter implements InputFilterAwareInterface{
                     ),
                 ),
             )));*/
-            $this->add(array(
-                'type' => 'Zend\Form\Element\Captcha',
-                'name' => 'captcha',
-                'options' => array(
-                    'label' => 'Please verify you are human',
-                    'captcha' => new \Zend\Captcha\Figlet(),
-                ),
-            ));
+
             $inputFilter->add($factory->createInput(array(
                 'name' => 'description',
                 'required' => true,
