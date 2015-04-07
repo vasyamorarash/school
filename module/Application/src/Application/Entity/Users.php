@@ -49,7 +49,7 @@ class Users {
      */
     protected $institution_id;
 
-    /** @ORM\Column(type="date") */
+    /** @ORM\Column(type="string") */
     protected $birthday;
 
     /** @ORM\Column(type="integer") */

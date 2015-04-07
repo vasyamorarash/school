@@ -40,6 +40,7 @@ class UsersController extends AbstractActionController{
                     $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
                     $institutions = new Users();
                     $institutions->exchangeArray($form->getData());
+                //    die(print_r($form->getData()));
                     $objectManager->persist($institutions);
                     $objectManager->flush();
 

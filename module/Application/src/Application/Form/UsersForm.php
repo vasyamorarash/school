@@ -147,8 +147,8 @@ class UsersForm extends Form{
                 ),
                 'label' => 'Institution',
                 'value_options' => array(
-                    '0' => 'School',
-                    '1' => 'University',
+                    '1' => 'School',
+                    '2' => 'University',
                 ),
             ),
         ));
@@ -165,8 +165,8 @@ class UsersForm extends Form{
                 ),
                 'label' => 'Type',
                 'value_options' => array(
-                    '0' => 'Student',
-                    '1' => 'Teacher',
+                    '1' => 'Student',
+                    '2' => 'Teacher',
                 ),
             ),
         ));
@@ -177,6 +177,8 @@ class UsersForm extends Form{
                 'class' => 'form-control',
                 'min'  => '1900-01-01',
                 'max'  => date('Y-m-d'),
+                'min' => '1900-01-01',
+                'max' => date('Y-m-d'),
                 'step' => '1',
             ),
             'options' => array(
@@ -200,8 +202,8 @@ class UsersForm extends Form{
                 ),
                 'label' => 'Sex',
                 'value_options' => array(
-                    '0' => 'women',
-                    '1' => 'men',
+                    '1' => 'women',
+                    '2' => 'men',
                 ),
             ),
         ));
