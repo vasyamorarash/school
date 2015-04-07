@@ -238,7 +238,16 @@ class UsersForm extends Form{
 
             ),
         ));
-
+        $this->add(array(
+            'type' => 'Zend\Form\Element\Captcha',
+            'name' => 'captcha',
+            'options' => array(
+                'label' => 'Please verify you are human',
+                'captcha' => array(
+                    'class' => 'Figlet',
+                ),
+            ),
+        ));
         $this->add(array(
             'name' => 'submit',
             'type' => 'Submit',
