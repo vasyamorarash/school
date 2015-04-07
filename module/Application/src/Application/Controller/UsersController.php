@@ -36,7 +36,7 @@ class UsersController extends AbstractActionController{
 
             if($form->isValid() ){
                 {
-                    die('alacatraz');
+                    //die('alacatraz');
                     $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
                     $institutions = new Users();
                     $institutions->exchangeArray($form->getData());

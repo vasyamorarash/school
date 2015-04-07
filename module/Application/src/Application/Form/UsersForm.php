@@ -175,14 +175,14 @@ class UsersForm extends Form{
             'name'    => 'birthday',
             'attributes' => array(
                 'class' => 'form-control',
-                'min' => date('Y') - 50,
-                'max' => date('Y') - 18,
+                'min'  => '1900-01-01',
+                'max'  => date('Y-m-d'),
                 'step' => '1',
             ),
-                'options' => array(
-                    'label_attributes'=> array(
-                        'class' => 'col-lg-4 control-label',
-                    ),
+            'options' => array(
+                'label_attributes'=> array(
+                    'class' => 'col-lg-4 control-label',
+                ),
                 'label' => 'Birthdate',
                 'format' => 'Y-m-d'
             )
@@ -212,7 +212,7 @@ class UsersForm extends Form{
             'type' => 'Zend\Form\Element\Text',
             'attributes' => array(
                 'class' => 'form-control',
-                'placeholder' => '0156165',
+                'placeholder' => '+380*********',
                 'required' => 'required',
             ),
             'options' => array(
