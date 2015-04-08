@@ -208,6 +208,7 @@ class UsersInputFilter implements InputFilterAwareInterface{
                     ),
                 ),
             )));*/
+
             $inputFilter->add($factory->createInput(array(
                 'name' => 'description',
                 'required' => true,
