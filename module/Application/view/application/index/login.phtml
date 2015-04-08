@@ -16,13 +16,13 @@ echo $this->form()->closeTag();
 if ($user = $this->identity() ) {
     echo 'Logged in as ' . $this->escapeHtml($user->getLogin());
     ?>
-    | <a href="<?php// echo $this->url('site/default', array('controller' => 'index', 'action' => 'logout'));?>"><?php echo $this->translate('Logout'); ?></a>
+    | <a href="<?php echo $this->url('site/home', array('controller' => 'index', 'action' => 'logout'));?>"><?php echo $this->translate('Logout'); ?></a>
 <?php
 } else {
     echo 'Not logged in';
 }
 ?>
 <p>
-    <a href="<?php// echo $this->url('auth-doctrine/default', array('controller' => 'registration', 'action' => 'index'));?>"><?php echo $this->translate('Register'); ?></a> |
+    <a href="<?php echo $this->url('site/users', array('controller' => 'users', 'action' => 'add'));?>"><?php echo $this->translate('Register'); ?></a> |
     <a href="<?php// echo $this->url('auth-doctrine/default', array('controller' => 'registration', 'action' => 'forgotten-password'));?>"><?php echo $this->translate('Forgotten Password'); ?></a>
 </p>

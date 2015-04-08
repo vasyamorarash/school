@@ -10,7 +10,7 @@ if ($user = $this->identity() ) {
     echo 'Logged in as ' . $this->escapeHtml($user->getLogin());
 
     ?>
-    | <a href="<?php// echo $this->url('site/default', array('controller' => 'index', 'action' => 'logout'));?>"><?php echo $this->translate('Logout'); ?></a>
+    | <a href="<?php echo $this->url('site/home', array('controller' => 'index', 'action' => 'logout'));?>"><?php echo $this->translate('Logout'); ?></a>
 <?php
 } else {
     echo 'Not logged in';
