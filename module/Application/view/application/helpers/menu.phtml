@@ -35,7 +35,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign In <span class="caret"></span></a>
                     <ul class="dropdown-menu" style="background-color: #eee;">
                         <li >
-                            <form class="navbar-form navbar-right" role="search" style="margin-right: 1px;">
+                            <form method="post" action="<?php  echo $this->url('site/home',array('action' => 'login')) ?>" class="navbar-form navbar-right" role="search" style="margin-right: 1px;">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Login" >
                                 </div>
