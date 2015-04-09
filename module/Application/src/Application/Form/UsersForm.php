@@ -177,8 +177,6 @@ class UsersForm extends Form{
                 'class' => 'form-control',
                 'min'  => '1900-01-01',
                 'max'  => date('Y-m-d'),
-                'min' => '1900-01-01',
-                'max' => date('Y-m-d'),
                 'step' => '1',
             ),
             'options' => array(

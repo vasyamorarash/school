@@ -5,14 +5,14 @@
  * Date: 31.03.2015
  * Time: 2:11
  */
-$title = 'Registration Users';
+$title = 'registration Users';
 $this->headTitle($title);
 //print $this->showMessages();
 ?>
 <h1><?php echo $this->escapeHtml($title);?></h1>
 
 <?php
-$form->setAttribute('action', $this->url('site/users', array('action' => 'add')));
+$form->setAttribute('action', $this->url('site/users', array('action' => 'Registration')));
 
 $form->prepare();
 
