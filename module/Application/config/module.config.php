@@ -15,10 +15,6 @@ return array(
                 'identity_class' => 'Application\Entity\Users',
                 'identity_property' => 'login',
                 'credential_property' => 'password',
-//                'credential_callable' => function(\Application\Entity\Users $user, $passwordGiven) {
-//                    return my_awesome_check_test($user->getPassword(), $passwordGiven);
-//                },
-
             ),
         ),
 

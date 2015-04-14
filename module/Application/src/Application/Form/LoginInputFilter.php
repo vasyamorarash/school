@@ -16,8 +16,6 @@ class LoginInputFilter extends InputFilter
 {
     public function __construct($sm)
     {
-// self::__construct(); // parnt::__construct(); - trows and error
-
         $this->add(array(
             'name' => 'login', // 'usr_name'
             'required' => true,
@@ -34,14 +32,17 @@ class LoginInputFilter extends InputFilter
                         'max' => 100,
                     ),
                 ),
-                array(
-                    'name'	=> 'DoctrineModule\Validator\ObjectExists',
-                    'options' => array(
-                        'object_repository' => $sm->get('doctrine.entitymanager.orm_default')
-                            ->getRepository('Application\Entity\Users'),
-                        'fields' => 'login'
-                    ),
-                ),
+//                array(
+//                    'name'	=> 'DoctrineModule\Validator\ObjectExists',
+//                    'options' => array(
+//                        'object_repository' => $sm->get('doctrine.entitymanager.orm_default')
+//                            ->getRepository('Application\Entity\Users'),
+//                        'fields' => 'login',
+//                        'messages' => array(
+//                            'noObjectFound' => 'User dosen\'t exist !'
+//                        ),
+//                    ),
+//                ),
             ),
         ));
         $this->add(array(
@@ -56,8 +57,8 @@ class LoginInputFilter extends InputFilter
                     'name' => 'StringLength',
                     'options' => array(
                         'encoding' => 'UTF-8',
-                        'min' => 2,
-                        'max' => 12,
+                        'min' => 6,
+                        'max' => 34,
                     ),
                 ),
             ),

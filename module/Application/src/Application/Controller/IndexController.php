@@ -42,8 +42,6 @@ class IndexController extends AbstractActionController
     public function loginAction()
     {
         $form = new LoginForm();
-
-        $form->get('submit')->setValue('Login');
         $messages = null;
         $request = $this->getRequest();
 
@@ -59,10 +57,11 @@ class IndexController extends AbstractActionController
                 $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
                 $adapter = $authService->getAdapter();
                 $adapter->setIdentityValue($data['login']);
-                $adapter->setCredentialValue($data['password']);
+                $adapter->setCredentialValue(md5($data['password']));
+                //var_dump(get_class_methods($authService));
 
                 $authResult = $authService->authenticate();
-
+                //var_dump(md5('qwerty'));
                 if ($authResult->isValid()) {
 
                     $identity = $authResult->getIdentity();
@@ -76,13 +75,12 @@ class IndexController extends AbstractActionController
                 return $this->redirect()->toRoute('site/home');
                 }
                 foreach ($authResult->getMessages() as $message) {
-                    $messages .= "$message\n";
+                    $messages = "Incorect data!!!!";
                 }
             }
         }
 
         return new ViewModel(array(
-            'error' => 'Your authentication credentials are not valid',
             'form'	=> $form,
             'messages' => $messages,
         ));
@@ -91,14 +89,12 @@ class IndexController extends AbstractActionController
     public function logoutAction()
     {
         $auth = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
-        // @todo Set up the auth adapter, $authAdapter
         if ($auth->hasIdentity()) {
             $identity = $auth->getIdentity();
         }
         $auth->clearIdentity();
         $sessionManager = new \Zend\Session\SessionManager();
         $sessionManager->forgetMe();
-        // return $this->redirect()->toRoute('home');
         return $this->redirect()->toRoute('site/home', array('controller' => 'index', 'action' => 'login'));
 
     }

@@ -7,12 +7,17 @@
  */
 namespace Application\View\Helper;
 
+
+use Application\Form\LoginForm;
+
 class MenuHelper extends HelperBase
 {
     public function __invoke()
     {
-        return $this->getView()->render('application/helpers/menu',[
+        $form = new LoginForm();
 
+        return $this->getView()->render('application/helpers/menu',[
+            'form'	=> $form,
         ]);
     }
 }
