@@ -58,7 +58,7 @@ class Users {
     protected $phone;
 
 
-    /** @ORM\Column(type="integer") */
+    /** @ORM\Column(type="string") */
     protected $description;
 
     /**

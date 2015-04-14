@@ -35,6 +35,8 @@
                 <div class="col-lg-4">
                     <span>Don't have an account?</span>
                     <a href="<?php echo $this->url('site/users',array('action' => 'add')) ?>" class="btn btn-primary">Sign Up </a>
+                    <br>
+                    <a href="<?php echo $this->url('site/users',array('action' => 'forgotten-password')) ?>" >Forgotten Password </a>
                 </div>
             </div>
             <?php echo $this->form()->closeTag() ?>
