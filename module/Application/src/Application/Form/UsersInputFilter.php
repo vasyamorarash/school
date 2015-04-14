@@ -45,20 +45,17 @@ class UsersInputFilter extends InputFilter{
             ),
             'validators' => array(
                 array (
-                    'name' => 'EmailAddress',
-                    'options' => array(
-                        'messages' => array(
-                            'emailAddressInvalidFormat' => 'Email address format is not invalid',
-                        )
-                    ),
                     array(
                         'name'		=> 'DoctrineModule\Validator\NoObjectExists',
                         'options' => array(
                             'object_repository' => $sm->get('doctrine.entitymanager.orm_default')
-                                                    ->getRepository('Application\Entity\Users'),
+                                ->getRepository('Application\Entity\Users'),
                             'fields'            => 'email'
                         ),
                     ),
+                    'name' => 'EmailAddress',
+
+
                 ),
                 array (
                     'name' => 'NotEmpty',

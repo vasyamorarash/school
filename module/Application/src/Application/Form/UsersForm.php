@@ -200,8 +200,8 @@ class UsersForm extends Form{
                 ),
                 'label' => 'Sex',
                 'value_options' => array(
-                    '1' => 'women',
-                    '2' => 'men',
+                    '1' => 'woman',
+                    '2' => 'man',
                 ),
             ),
         ));

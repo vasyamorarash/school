@@ -25,7 +25,8 @@ class ForgottenPasswordFilter extends InputFilter{
                 array(
                     'name'		=> 'DoctrineModule\Validator\ObjectExists',
                     'options' => array(
-                        'object_repository' => $sm->get('doctrine.entitymanager.orm_default')->getRepository('Application\Entity\User'),
+                        'object_repository' => $sm->get('doctrine.entitymanager.orm_default')
+                            ->getRepository('Application\Entity\Users'),
                         'fields'            => 'email'
                     ),
                 ),
