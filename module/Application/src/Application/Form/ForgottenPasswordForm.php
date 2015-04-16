@@ -17,13 +17,18 @@ class ForgottenPasswordForm extends Form
     {
         parent::__construct('registration');
         $this->setAttribute('method', 'post');
-
+        $this->setAttribute('class', 'form-horizontal');
         $this->add(array(
             'name' => 'email',
             'attributes' => array(
                 'type'  => 'email',
+                'class' => 'form-control',
+                'placeholder' => 'Email...',
             ),
             'options' => array(
+                'label_attributes'=> array(
+                    'class' => 'col-lg-4 control-label',
+                ),
                 'label' => 'E-mail',
             ),
         ));
@@ -34,6 +39,7 @@ class ForgottenPasswordForm extends Form
                 'type'  => 'submit',
                 'value' => 'Go',
                 'id' => 'submitbutton',
+                'class' => 'btn btn-primary',
             ),
         ));
     }

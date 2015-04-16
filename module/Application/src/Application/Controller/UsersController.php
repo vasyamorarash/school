@@ -58,7 +58,19 @@ class UsersController extends AbstractActionController{
 
         return ['form' => $form];
     }
-
+    function passwordChangeSuccessAction()
+    {
+        $email = null;
+        $flashMessenger = $this->flashMessenger();
+        if ($flashMessenger->hasMessages()) {
+            foreach ($flashMessenger->getMessages() as $key => $value) {
+                $email .= $value;
+            }
+        }
+        return new ViewModel(array(
+            'email' => $email
+        ));
+    }
     public function forgottenPasswordAction()
     {
         $form = new ForgottenPasswordForm();
@@ -80,7 +92,7 @@ class UsersController extends AbstractActionController{
                 $user->setPassword($passwordHash);
                 $entityManager->persist($user);
                 $entityManager->flush();
-               // return $this->redirect()->toRoute('site/users', array('controller'=>'registration', 'action'=>'password-change-success'));
+                return $this->redirect()->toRoute('site/users', array('controller'=>'registration', 'action'=>'password-change-success'));
             }
         }
         return new ViewModel(array('form' => $form));
