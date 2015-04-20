@@ -1,0 +1,89 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Vassya
+ * Date: 31.03.2015
+ * Time: 14:16
+ */
+
+
+?>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo $this->url('api-site',array('subdomain'=>'api')) ?>">Api School</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="<?php echo $this->url('api-site',array('subdomain'=>'api')) ?>"><?php echo $this->translate('Home') ?></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">School <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Best students</a></li>
+                        <li class="divider"></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <?php if ($user = $this->identity()): ?>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $this->escapeHtml($user->getLogin());?><span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="background-color: #eee;">
+                        <li></li>
+                        <li class="divider"></li>
+                        <li style="text-align: center;">
+                            <div class="form-group">
+                                <a href="<?php echo $this->url('api-site/home', array('subdomain'=>'api','controller' => 'index', 'action' => 'logout'));?>" class="btn btn-primary"><?php echo $this->translate('Sign Out'); ?></a>
+                            </div>
+                        </li>
+                    </ul>
+                    <?php else: ?>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign In <span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="background-color: #eee;">
+                        <li >
+                            <?php echo $this->messages; ?>
+                            <?php
+                                $form = $this->form;
+                                $form->setAttribute('action', $this->url('api-site/home', array('subdomain'=>'api','action' => 'login')));
+                                $form->prepare();
+                            ?>
+
+                            <?php echo  $this->form()->openTag($form);?>
+                            <div class="form-group">
+                                <?php echo $this->formRow($form->get('login')) ?>
+                            </div>
+                            <div class="form-group">
+                                <?php echo $this->formRow($form->get('password')) ?>
+                            </div>
+                            <div class="form-group">
+                                <?php echo $this->formSubmit($form->get('submit')) ?>
+                                <span style="color: #030303"><?php echo $this->formRow($form->get('rememberme')) ?></span>
+                            </div>
+                            <?php echo $this->form()->closeTag() ?>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li style="text-align: center;"><span style="color: #030303">Don't have an account?</span>
+                            <div class="form-group">
+                                <a href="<?php echo $this->url('site/users',array('action' => 'registration')) ?>" class="btn btn-primary">Sign Up </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <?php endif ?>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

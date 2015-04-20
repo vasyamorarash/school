@@ -120,10 +120,14 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => array(
                     // Site section
-                    'api-home' => array(
-                        'type' => 'literal',
+                    'home' => array(
+                        'type' => 'segment',
                         'options' => array(
-                            'route'    => '/',
+                            'route'    => '/[:action][/:id]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
                             'defaults' => array(
                                 'controller' => 'School\Controller\Index',
                                 'action'     => 'index',

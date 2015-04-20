@@ -10,13 +10,12 @@ return array(
         'site/home',
         'site/users',
         'site/institutions',
-        'api-site',
-        'site/institutions',
+        'api-site/home',
     ),
     'admin'=> array(
    //     'site/home',
         'add-user',
-        'delete-user'
+        'delete-user',
     ),
     'teacher'=> array(
 
