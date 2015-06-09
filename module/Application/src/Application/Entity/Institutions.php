@@ -45,8 +45,16 @@ class Institutions {
     /** @ORM\Column(type="text") */
     protected $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Users", mappedBy="institution")
+     */
+    private $users;
+
+
     public function __construct() {
         $this->institution_type = new ArrayCollection();
+        $this->users = new ArrayCollection();
+
     }
 
     /**

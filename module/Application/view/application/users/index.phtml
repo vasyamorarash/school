@@ -17,7 +17,7 @@
         <th>user_type</th>
         <th>birthday</th>
         <th>description</th>
-<!--        <th>institution</th>-->
+        <th>institution</th>
         <th>sex</th>
         <th>phone</th>
     </tr>
@@ -32,7 +32,7 @@
         <td><?php echo $user->getUserType()->getName()?></td>
         <td><?php echo $user->getBirthday()?></td>
         <td><?php echo $user->getDescription()?></td>
-<!--        <td>--><?php //echo $user->getInstitution()?><!--</td>-->
+        <td><?php echo $user->getInstitution()->getName()?></td>
         <td><?php echo $user->getSex()->getType()?></td>
         <td><?php echo $user->getPhone()?></td>
     </tr>

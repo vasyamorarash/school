@@ -51,8 +51,11 @@ class Users {
      */
     protected $institution_id;
 
-
-    //private $institution;
+    /**
+     * @ORM\ManyToOne(targetEntity="Institutions", inversedBy="users")
+     * @ORM\JoinColumn(name="institution_id", referencedColumnName="id")
+     */
+    private $institution;
 
     /** @ORM\Column(type="string") */
     protected $birthday;
@@ -69,6 +72,14 @@ class Users {
 
     /** @ORM\Column(type="string") */
     protected $description;
+
+    /**
+     * @return mixed
+     */
+    public function getInstitution()
+    {
+        return $this->institution;
+    }
 
     /**
      * @return mixed
