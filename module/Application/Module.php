@@ -9,6 +9,8 @@
 
 namespace Application;
 
+use Application\Entity\Users;
+use Zend\Authentication\AuthenticationService;
 use Zend\Mail\Transport\Smtp;
 use Zend\Mail\Transport\SmtpOptions;
 use Zend\Mvc\ModuleRouteListener;
@@ -90,12 +92,22 @@ class Module
     {
         return array(
             'factories' => array(
+//                'Application\Entity\Users' => function ($sm) {
+//                    return new Users();
+//                },
+//                'AuthService' => function ($sm) {
+//                    $authService = new AuthenticationService();
+//                    $authService->setStorage($sm->get('Application\Entity\Users'));
+//                    return $authService;
+//                },
+//            ),
 //                'mail.transport' => function (ServiceManager $serviceManager) {
 //                $config = $serviceManager->get('Config');
 //                $transport = new  Smtp();
 //                $transport->setOptions(new SmtpOptions($config['mail']['transport']['options']));
 //                return $transport;
 //            },
+
                 'Zend\Authentication\AuthenticationService' => function($serviceManager) {
                     // If you are using DoctrineORMModule:
                     return $serviceManager->get('doctrine.authenticationservice.orm_default');

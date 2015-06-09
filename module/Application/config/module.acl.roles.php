@@ -10,6 +10,7 @@ return array(
         'site/home',
         'site/users',
         'site/institutions',
+        'site/institution-type',
         'api-site/home',
     ),
     'admin'=> array(
@@ -22,3 +23,22 @@ return array(
     ),
 
 );
+//
+//return array(
+//    'acl' => array(
+//        'roles' => array(
+//            'guest'     => null,
+//            'user'      => 'guest',
+//            'manager'   => 'user',
+//            'admin'     => 'manager',
+//        ),
+//        'resources' => array(
+//            'allow' => array(
+//                // Application Controller
+//                'Application\Controller\Index'  => array(
+//                    'all' => 'guest',
+//                ),
+//            ),
+//        ),
+//    ),
+//);

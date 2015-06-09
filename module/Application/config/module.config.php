@@ -143,6 +143,23 @@ return array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
+        'factories' => array(
+//            'AccessControl' => function ($sm) {
+//                $auth = new Auth\Authentication();
+//                $alc = Zend\Cache\PatternFactory::factory('object', array(
+//                    'object' => new \Auth\Acl(require __DIR__ . '/alc.config.php'),
+//                    'storage' => 'memcached',
+//                    'object_key' => '.objectCache.\Auth\Acl',
+//                    'cache_by_default' => false,
+//                    // the output don't need to be catched and cached
+//                    'cache_output' => false,
+//                ));
+//                $auth->setUserAuthenticationPlugin($sm->get('User'))
+//                    ->setAclClass($alc);
+//                return $auth;
+//            },
+//....................................
+        ),
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),

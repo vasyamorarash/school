@@ -5,6 +5,31 @@
  * Date: 31.03.2015
  * Time: 2:23
  */
+//echo '<pre>';
+//print_r($data['id']);
+//print_r($data['name']);
+//print_r($data['institution_type']->getName());
+?>
+<table class="table" >
+    <tr>
+        <th>Name</th>
+        <th>address</th>
+        <th>subdomain</th>
+        <th>phone</th>
+        <th>description</th>
+        <th>institution_type</th>
+    </tr>
 
-print_r($posts[0]['address']);
+    <?php foreach($data as $institution) : ?>
+    <tr>
+        <td><?php echo $institution->getName();?></td>
+        <td><?php echo $institution->getAddress();?></td>
+        <td><?php echo $institution->getSubdomain();?></td>
+        <td><?php echo $institution->getPhone();?></td>
+        <td><?php echo $institution->getDescription();?></td>
+        <td><?php echo $institution->getInstitutionType()->getName();?></td>
+    </tr>
+<?php endforeach; ?>
+</table>
+
 

@@ -23,9 +23,18 @@ use Zend\View\Model\ViewModel;
 use Zend\Mail\Message;
 
 class UsersController extends AbstractActionController{
+
+    public function indexAction(){
+        $em = $this->getServiceLocator()
+            ->get('Doctrine\ORM\EntityManager');
+        $config = $em->getRepository("\Application\Entity\Users")->findAll();
+
+        return new ViewModel(array(
+            'data' => $config,
+        ));
+    }
     public function registrationAction()
     {
-
         $form = new UsersForm();
         $request = $this->getRequest();
 
@@ -87,7 +96,6 @@ class UsersController extends AbstractActionController{
                 $password = $this->generatePassword();
                 $passwordHash = $this->encriptPassword($password);
                 $this->sendPasswordByEmail($email, $password);
-                //die();
                 $this->flashMessenger()->addMessage($email);
                 $user->setPassword($passwordHash);
                 $entityManager->persist($user);
@@ -101,7 +109,7 @@ class UsersController extends AbstractActionController{
     {
         $message = new Message();
         $message->addTo($usr_email)
-            ->addFrom('praktiki@coolcsn.com')
+            ->addFrom('alcatraz@gmail.com')
             ->setSubject('Your password has been changed!')
             ->setBody("Your password at  " .
                 $this->getRequest()->getServer('HTTP_ORIGIN') .

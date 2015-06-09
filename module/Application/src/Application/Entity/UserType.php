@@ -19,14 +19,28 @@ class UserType {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     * @ORM\OneToMany(targetEntity="User", mappedBy="user_type_id")
-     * @ORM\JoinColumn(name="user_type_id", referencedColumnName="id")
-
      */
     protected $id;
 
     /** @ORM\Column(type="string") */
     protected $name;
+
+    /**
+      * @ORM\OneToMany(targetEntity="Users", mappedBy="user_type")
+     */
+    private $users;
+
+    public function __construct() {
+        $this->users = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
 
     /**
      * @return mixed

@@ -12,13 +12,21 @@ namespace Application\Controller;
 use Application\Entity\Institutions;
 use Application\Form\InstitutionsForm;
 use Application\Form\InstitutionsInputFilter;
+use Doctrine\ORM\Query\ResultSetMapping;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
 
 class InstitutionsController extends AbstractActionController{
 
     public function indexAction(){
-        return  new ViewModel();
+        $em = $this->getServiceLocator()
+            ->get('Doctrine\ORM\EntityManager');
+        $config = $em->getRepository("\Application\Entity\Institutions")->findAll();
+
+        return new ViewModel(array(
+            'data' => $config,
+        ));
     }
     public function addAction()
     {

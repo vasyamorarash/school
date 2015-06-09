@@ -8,6 +8,7 @@
 
 namespace Application\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /** @ORM\Entity */
 class Institutions {
@@ -15,8 +16,7 @@ class Institutions {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     * @ORM\OneToMany(targetEntity="Users", mappedBy="institution_id")
-     * @ORM\JoinColumn(name="institution_id", referencedColumnName="id")
+
      */
     protected $id;
 
@@ -24,11 +24,14 @@ class Institutions {
     /** @ORM\Column(type="string") */
     protected $name;
 
-    /** @ORM\Column(type="integer")
-     * @ORM\ManyToOne(targetEntity="InstitutionType", inversedBy="id")
-     * @ORM\JoinColumn(name="institution_type_id", referencedColumnName="institution_id")
-     */
+    /** @ORM\Column(type="integer") */
     protected $institution_type_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InstitutionType", inversedBy="institution")
+     * @ORM\JoinColumn(name="institution_type_id", referencedColumnName="id")
+     **/
+    private $institution_type;
 
     /** @ORM\Column(type="string") */
     protected $address;
@@ -41,6 +44,19 @@ class Institutions {
 
     /** @ORM\Column(type="text") */
     protected $description;
+
+    public function __construct() {
+        $this->institution_type = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstitutionType()
+    {
+        return $this->institution_type;
+    }
+
 
     /**
      * @return mixed

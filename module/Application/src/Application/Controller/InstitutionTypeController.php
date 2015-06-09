@@ -17,6 +17,16 @@ use Zend\View\Model\ViewModel;
 
 class InstitutionTypeController extends AbstractActionController{
 
+    public function indexAction(){
+        $em = $this->getServiceLocator()
+            ->get('Doctrine\ORM\EntityManager');
+        $config = $em->getRepository("\Application\Entity\Institutions")->findby(array('institution_type_id'=> '15'));
+
+        return new ViewModel(array(
+            'data' => $config,
+        ));
+    }
+
     public function addAction()
     {
 

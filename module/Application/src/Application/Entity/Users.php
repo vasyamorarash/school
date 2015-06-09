@@ -38,28 +38,53 @@ class Users {
     /** @ORM\Column(type="string") */
     protected $middle_name;
 
-    /** @ORM\Column(type="integer")
-
-     */
+    /** @ORM\Column(type="integer") */
     protected $user_type_id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="UserType", inversedBy="users")
+     * @ORM\JoinColumn(name="user_type_id", referencedColumnName="id")
+     */
+    private $user_type;
 
     /** @ORM\Column(type="integer")
      */
     protected $institution_id;
+
+
+    //private $institution;
 
     /** @ORM\Column(type="string") */
     protected $birthday;
 
     /** @ORM\Column(type="integer") */
     protected $sex_id;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="Sexes", inversedBy="users")
+     * @ORM\JoinColumn(name="sex_id", referencedColumnName="id")
+     */
+    private $sex;
     /** @ORM\Column(type="integer") */
     protected $phone;
 
-
     /** @ORM\Column(type="string") */
     protected $description;
+
+    /**
+     * @return mixed
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserType()
+    {
+        return $this->user_type;
+    }
 
     /**
      * @return mixed

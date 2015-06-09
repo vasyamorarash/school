@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 /** @ORM\Entity */
 
-class Sex
+class Sexes
 {
     /**
      * @ORM\Id
@@ -26,4 +26,54 @@ class Sex
 
     /** @ORM\Column(type="string") */
     protected $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Users", mappedBy="sex")
+     */
+    private $users;
+
+    public function __construct() {
+        $this->users = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
 }

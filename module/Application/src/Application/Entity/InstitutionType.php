@@ -8,6 +8,7 @@
 
 namespace Application\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /** @ORM\Entity */
 class InstitutionType {
@@ -16,13 +17,29 @@ class InstitutionType {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     * @ORM\OneToMany(targetEntity="Institutions", mappedBy="institution_type_id")
-     * @ORM\JoinColumn(name="institution_type_id", referencedColumnName="id")
      */
     protected $id;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string")
+     */
     protected $name;
+
+    /**
+     *  @ORM\OneToMany(targetEntity="Institutions", mappedBy="institution_type")
+     */
+    private $institution;
+
+    public function __construct() {
+        $this->institution = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstitution()
+    {
+        return $this->institution;
+    }
 
     /**
      * @return mixed

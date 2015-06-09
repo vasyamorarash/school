@@ -95,7 +95,7 @@ class IndexController extends AbstractActionController
         $auth->clearIdentity();
         $sessionManager = new \Zend\Session\SessionManager();
         $sessionManager->forgetMe();
-        return $this->redirect()->toRoute('site/home', array('controller' => 'index', 'action' => 'login'));
+        $this->redirect()->toRoute('site/home', array('controller' => 'index', 'action' => 'login'));
 
     }
 }
